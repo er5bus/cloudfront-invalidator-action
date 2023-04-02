@@ -12,8 +12,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Invalidate CloudFront distribution
-        uses: er5bus/cloudfront-invalidator-action@v1
-        with:
-          domain-name: ${{ env.DOMAIN_NAME }}
-          invalidation-type: by-origin
+        uses: ./
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
 
