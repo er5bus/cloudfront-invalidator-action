@@ -46,8 +46,6 @@ def invalidate_distribution_by_alias(alias):
 
 
 if __name__ == "__main__":
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
     import os
     domain_name = os.environ.get('DOMAIN_NAME')
     invalidate_distribution_by_origins(domain_name)
