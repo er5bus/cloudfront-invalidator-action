@@ -9,6 +9,8 @@ steps:
   - name: Invalidate CloudFront distribution
     uses: er5bus/cloudfront-invalidator-action@v1.0.0
     env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       DOMAIN_NAME: mydomain.com
 ```
 Make sure to replace mydomain.com with your own domain name.
