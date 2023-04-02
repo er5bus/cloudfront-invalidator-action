@@ -1,0 +1,13 @@
+name: 'CloudFront Invalidation'
+description: 'Invalidates a CloudFront distribution by origin or alias'
+
+inputs:
+  domain-name:
+    description: 'The domain name of the CloudFront distribution'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: './entrypoint.sh'
+

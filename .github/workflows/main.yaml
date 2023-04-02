@@ -1,0 +1,19 @@
+name: Github Action CloudFront Invalidation
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  invalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Invalidate CloudFront distribution
+        uses: er5bus/cloudfront-invalidator-action@v1
+        with:
+          domain-name: ${{ env.DOMAIN_NAME }}
+          invalidation-type: by-origin
+
